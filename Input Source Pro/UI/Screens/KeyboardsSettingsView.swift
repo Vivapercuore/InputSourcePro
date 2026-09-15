@@ -12,7 +12,7 @@ struct KeyboardsSettingsView: View {
     let imgSize: CGFloat = 16
     let shortcutControlColumns: [GridItem] = [
         GridItem(.fixed(120), spacing: 8, alignment: .trailing),
-        GridItem(.fixed(160), spacing: 8, alignment: .leading)
+        GridItem(.fixed(160), spacing: 8, alignment: .trailing)
     ]
     
     /// Check if any single modifier shortcuts are configured
@@ -344,7 +344,7 @@ struct KeyboardsSettingsView: View {
             : SingleModifierTrigger.allCases
 
         VStack(alignment: .trailing, spacing: 8) {
-            LazyVGrid(columns: shortcutControlColumns, alignment: .leading, spacing: 6) {
+            LazyVGrid(columns: shortcutControlColumns, alignment: .trailing, spacing: 6) {
                 Text("Shortcut Type".i18n())
                 Picker("Shortcut Type".i18n(), selection: modeBinding) {
                     ForEach(ShortcutTriggerMode.allCases) { option in
