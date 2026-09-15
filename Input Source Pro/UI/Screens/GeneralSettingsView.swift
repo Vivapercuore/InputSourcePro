@@ -418,16 +418,20 @@ struct GeneralSettingsView: View {
 }
 
 private struct RefinePromotionCard: View {
+    @Environment(\.colorScheme) private var colorScheme
     @State private var iconImage: NSImage?
 
-    private let iconURL = URL(string: "https://refine.sh/icon.png")!
     private let websiteURL = URL(string: "https://refine.sh?utm_source=inputsourcepro")!
+
+    private var iconURL: URL {
+        URL(string: colorScheme == .dark ? "https://refine.sh/icon-dark.png" : "https://refine.sh/icon.png")!
+    }
 
     var body: some View {
         Button(action: {
             NSWorkspace.shared.open(websiteURL)
         }) {
-            HStack(alignment: .center, spacing: 6) {
+            HStack(alignment: .center, spacing: 12) {
                 if let iconImage {
                     Image(nsImage: iconImage)
                         .resizable()
@@ -449,10 +453,6 @@ private struct RefinePromotionCard: View {
                         .font(.system(size: 13))
                         .foregroundColor(.secondary)
                         .lineLimit(2)
-
-                    Text("refine.sh")
-                        .font(.system(size: 11))
-                        .foregroundColor(.secondary.opacity(0.8))
                 }
 
                 Spacer()
@@ -462,16 +462,18 @@ private struct RefinePromotionCard: View {
                     .foregroundColor(.secondary.opacity(0.6))
             }
             .padding(.vertical, 8)
-            .padding(.leading, 8)
-            .padding(.trailing)
+            .padding(.horizontal)
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
-        .onAppear(perform: loadIconIfNeeded)
+        .task(id: iconURL) {
+            await loadIcon()
+        }
     }
 
-    private func loadIconIfNeeded() {
-        guard iconImage == nil else { return }
+    @MainActor
+    private func loadIcon() async {
+        iconImage = nil
 
         let request = URLRequest(
             url: iconURL,
@@ -479,14 +481,12 @@ private struct RefinePromotionCard: View {
             timeoutInterval: 30
         )
 
-        URLSession.shared.dataTask(with: request) { data, _, _ in
-            guard let data, let image = NSImage(data: data) else { return }
+        guard let (data, _) = try? await URLSession.shared.data(for: request),
+              !Task.isCancelled,
+              let image = NSImage(data: data)
+        else { return }
 
-            DispatchQueue.main.async {
-                iconImage = image
-            }
-        }
-        .resume()
+        iconImage = image
     }
 }
 
