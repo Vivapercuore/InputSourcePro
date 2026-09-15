@@ -111,7 +111,7 @@ Contributions are highly welcome! Whether you have a bug report, a feature sugge
 * **Code of Conduct:** Please note that this project adheres to our [**Code of Conduct**](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
 
 ## Building from Source
-Clone the repository and build it using the latest version of Xcode:
+Clone the repository and build it using Xcode 27 or later (Swift 6.4 or later):
 
 ```bash
 git clone git@github.com:runjuu/InputSourcePro.git

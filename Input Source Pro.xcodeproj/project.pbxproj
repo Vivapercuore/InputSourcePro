@@ -29,7 +29,6 @@
 		4A15EE412E0E123B007B76C3 /* CursorLagFixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A15EE402E0E123B007B76C3 /* CursorLagFixView.swift */; };
 		4A15EE432E0E1309007B76C3 /* RebootRequiredBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A15EE422E0E1309007B76C3 /* RebootRequiredBadge.swift */; };
 		4A1BD908287AD20200E4D8C2 /* KeyboardCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1BD907287AD20200E4D8C2 /* KeyboardCustomization.swift */; };
-		4A1BD90B287AD33C00E4D8C2 /* Boutique in Frameworks */ = {isa = PBXBuildFile; productRef = 4A1BD90A287AD33C00E4D8C2 /* Boutique */; };
 		4A1BD90F287BD14000E4D8C2 /* CustomizedIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1BD90E287BD14000E4D8C2 /* CustomizedIndicatorView.swift */; };
 		4A1F25222830C3E400001BAB /* Bundle+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F25212830C3E400001BAB /* Bundle+Version.swift */; };
 		4A20AD6128904B3A00620D14 /* NoAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A20AD6028904B3A00620D14 /* NoAnimation.swift */; };
@@ -390,7 +389,6 @@
 				D5E8C9332A29BC38008BDABE /* AXSwift in Frameworks */,
 				4A2A17A9280BA8BD00E13249 /* VisualEffects in Frameworks */,
 				4A2A17A4280BA86500E13249 /* SnapKit in Frameworks */,
-				4A1BD90B287AD33C00E4D8C2 /* Boutique in Frameworks */,
 				D52E2C53293D2BAD0017CB7E /* RxRelay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -783,7 +781,6 @@
 				4AD6BF9D280E739F0001E3C7 /* CombineExt */,
 				4A742D0728213E7700DCB392 /* Sparkle */,
 				4AC573822840E940000BF10B /* KeyboardShortcuts */,
-				4A1BD90A287AD33C00E4D8C2 /* Boutique */,
 				D52E2C50293D2BAD0017CB7E /* RxCocoa */,
 				D52E2C52293D2BAD0017CB7E /* RxRelay */,
 				D52E2C54293D2BAD0017CB7E /* RxSwift */,
@@ -851,7 +848,6 @@
 				4AD6BF9C280E739F0001E3C7 /* XCRemoteSwiftPackageReference "CombineExt" */,
 				4A742D0628213E7700DCB392 /* XCRemoteSwiftPackageReference "Sparkle" */,
 				4AC573812840E940000BF10B /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
-				4A1BD909287AD33C00E4D8C2 /* XCRemoteSwiftPackageReference "Boutique" */,
 				D52E2C4F293D2BAD0017CB7E /* XCRemoteSwiftPackageReference "RxSwift" */,
 				D525609A29B571D2009EB7BA /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D5E8C9312A29BC38008BDABE /* XCRemoteSwiftPackageReference "AXSwift" */,
@@ -1256,7 +1252,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 2.11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.runjuu.Input-Source-Pro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1293,7 +1289,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 2.11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.runjuu.Input-Source-Pro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1313,7 +1309,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.runjuu.Input-Source-Pro.Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1332,7 +1328,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.runjuu.Input-Source-Pro.Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1373,21 +1369,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4A1BD909287AD33C00E4D8C2 /* XCRemoteSwiftPackageReference "Boutique" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mergesort/Boutique";
-			requirement = {
-				kind = exactVersion;
-				version = 1.0.2;
-			};
-		};
 		4A2A17A2280BA86500E13249 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
 				kind = versionRange;
-				maximumVersion = 6.0.0;
-				minimumVersion = 5.0.0;
+				maximumVersion = 7.0.0;
+				minimumVersion = 6.0.0;
 			};
 		};
 		4A2A17A7280BA8BD00E13249 /* XCRemoteSwiftPackageReference "VisualEffects" */ = {
@@ -1396,7 +1384,7 @@
 			requirement = {
 				kind = versionRange;
 				maximumVersion = 2.0.0;
-				minimumVersion = 1.0.0;
+				minimumVersion = 1.0.3;
 			};
 		};
 		4A2ACC1A2D23C24100F39923 /* XCRemoteSwiftPackageReference "LaunchAtLogin-Legacy" */ = {
@@ -1404,7 +1392,7 @@
 			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Legacy";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 5.0.2;
 			};
 		};
 		4A742D0628213E7700DCB392 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
@@ -1412,7 +1400,7 @@
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.2.1;
+				minimumVersion = 2.10.0;
 			};
 		};
 		4AC573812840E940000BF10B /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
@@ -1420,7 +1408,7 @@
 			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.2.4;
+				minimumVersion = 3.1.0;
 			};
 		};
 		4AD6BF9C280E739F0001E3C7 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
@@ -1428,7 +1416,7 @@
 			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.8.0;
+				minimumVersion = 1.9.0;
 			};
 		};
 		D525609A29B571D2009EB7BA /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -1436,7 +1424,7 @@
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 5.12.2;
 			};
 		};
 		D52E2C4F293D2BAD0017CB7E /* XCRemoteSwiftPackageReference "RxSwift" */ = {
@@ -1444,7 +1432,7 @@
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
+				minimumVersion = 6.10.2;
 			};
 		};
 		D5E8C9312A29BC38008BDABE /* XCRemoteSwiftPackageReference "AXSwift" */ = {
@@ -1458,11 +1446,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4A1BD90A287AD33C00E4D8C2 /* Boutique */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4A1BD909287AD33C00E4D8C2 /* XCRemoteSwiftPackageReference "Boutique" */;
-			productName = Boutique;
-		};
 		4A2A17A3280BA86500E13249 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4A2A17A2280BA86500E13249 /* XCRemoteSwiftPackageReference "SnapKit" */;

@@ -6,11 +6,12 @@ on:
 
 jobs:
   build_with_signing:
-    runs-on: macos-26
+    # Alamofire 5.12 requires Swift 6.4, included with Xcode 27.
+    runs-on: xcode-27
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Restore ExportOptions.plist
         run: |
           echo "$EXPORT_OPTIONS_PLIST_B64" | base64 --decode > ExportOptions.plist

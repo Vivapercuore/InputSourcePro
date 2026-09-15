@@ -1,6 +1,4 @@
 import AppKit
-import Bodega
-import Boutique
 import Foundation
 import SwiftUI
 
@@ -132,13 +130,6 @@ extension PreferencesVM {
 }
 
 extension PreferencesVM {
-    struct DeprecatedKeyboardSettings: Codable & Equatable & Identifiable {
-        let id: String
-
-        var textColorHex: String?
-        var bgColorHex: String?
-    }
-
     func migratePreferncesIfNeed() {
         update {
             $0.migrateCJKVFixStrategyIfNeed()
@@ -149,43 +140,5 @@ extension PreferencesVM {
                 $0.indicatorInfo = $0.isShowInputSourcesLabel ? .iconAndTitle : .iconOnly
             }
         }
-    }
-
-    func migrateBoutiqueIfNeed() {
-        let storagePath = Store<DeprecatedKeyboardSettings>.documentsDirectory(appendingPath: "KeyboardSettings")
-
-        guard preferences.prevInstalledBuildVersion == 316,
-              FileManager.default.fileExists(atPath: storagePath.path) else { return }
-
-        let store = Store<DeprecatedKeyboardSettings>(storagePath: storagePath)
-
-        store.$items
-            .filter { $0.count > 0 }
-            .first()
-            .sink { [weak self] items in
-                self?.saveContext {
-                    for item in items {
-                        let matchedInputSources = InputSource.resolvePersistedIdentifiers(
-                            [item.id],
-                            expandingLegacySourceIDs: true
-                        )
-
-                        for inputSource in matchedInputSources {
-                            guard let config = self?.getOrCreateKeyboardConfig(inputSource)
-                            else { continue }
-
-                            config.textColorHex = item.textColorHex
-                            config.bgColorHex = item.bgColorHex
-                        }
-                    }
-                }
-
-                do {
-                    try FileManager.default.removeItem(at: storagePath)
-                } catch {
-                    print("Boutique migration error: \(error.localizedDescription)")
-                }
-            }
-            .store(in: cancelBag)
     }
 }
