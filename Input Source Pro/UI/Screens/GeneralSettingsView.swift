@@ -433,11 +433,11 @@ private struct RefinePromotionCard: View {
                         .resizable()
                         .interpolation(.high)
                         .antialiased(true)
-                        .frame(width: 64, height: 64)
+                        .frame(width: 48, height: 48)
                 } else {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color.gray.opacity(0.2))
-                        .frame(width: 64, height: 64)
+                        .frame(width: 48, height: 48)
                 }
 
                 VStack(alignment: .leading, spacing: 4) {
