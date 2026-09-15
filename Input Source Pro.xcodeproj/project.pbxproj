@@ -178,6 +178,8 @@
 		D60002022F20000000000202 /* IndicatorNearMousePointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60002012F20000000000201 /* IndicatorNearMousePointTests.swift */; };
 		D60002122F20000000000212 /* AlwaysNearMousePlacementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60002112F20000000000211 /* AlwaysNearMousePlacementTests.swift */; };
 		D60002422F20000000000242 /* SpotlightCompatibilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60002412F20000000000241 /* SpotlightCompatibilityTests.swift */; };
+		D60002222F20000000000222 /* SpotlightIndicatorPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60002212F20000000000221 /* SpotlightIndicatorPosition.swift */; };
+		D60002322F20000000000232 /* SpotlightIndicatorPositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60002312F20000000000231 /* SpotlightIndicatorPositionTests.swift */; };
 		D60001022F20000000000102 /* AppKindComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60001012F20000000000101 /* AppKindComparisonTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -373,6 +375,8 @@
 		D60002012F20000000000201 /* IndicatorNearMousePointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorNearMousePointTests.swift; sourceTree = "<group>"; };
 		D60002112F20000000000211 /* AlwaysNearMousePlacementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlwaysNearMousePlacementTests.swift; sourceTree = "<group>"; };
 		D60002412F20000000000241 /* SpotlightCompatibilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightCompatibilityTests.swift; sourceTree = "<group>"; };
+		D60002212F20000000000221 /* SpotlightIndicatorPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightIndicatorPosition.swift; sourceTree = "<group>"; };
+		D60002312F20000000000231 /* SpotlightIndicatorPositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightIndicatorPositionTests.swift; sourceTree = "<group>"; };
 		D60001012F20000000000101 /* AppKindComparisonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKindComparisonTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -659,6 +663,7 @@
 			isa = PBXGroup;
 			children = (
 				4A4167332814086E00CCC28C /* IndicatorPosition.swift */,
+				D60002212F20000000000221 /* SpotlightIndicatorPosition.swift */,
 				4AC450C6281E729000DA0329 /* IndicatorColor.swift */,
 				4ADDC323281AC39A0075528A /* IndicatorViewConfig.swift */,
 				D5115A1B2A33D0F700D94E51 /* IndicatorInfo.swift */,
@@ -756,6 +761,7 @@
 				D60002012F20000000000201 /* IndicatorNearMousePointTests.swift */,
 				D60002112F20000000000211 /* AlwaysNearMousePlacementTests.swift */,
 				D60002412F20000000000241 /* SpotlightCompatibilityTests.swift */,
+				D60002312F20000000000231 /* SpotlightIndicatorPositionTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -979,6 +985,7 @@
 				4A41672C2813ADF200CCC28C /* BrowserRuleRow.swift in Sources */,
 				4AC26157287AA11D0032AAFE /* IndicatorWindowController+Activation.swift in Sources */,
 				4A4167342814086E00CCC28C /* IndicatorPosition.swift in Sources */,
+				D60002222F20000000000222 /* SpotlightIndicatorPosition.swift in Sources */,
 				4A881A802888559200B76498 /* NSString.swift in Sources */,
 				4A2A1790280BA7FA00E13249 /* Color.swift in Sources */,
 				D579258C2A1AB0A4003B83EA /* NSRunningApplication+WindowInfo.swift in Sources */,
@@ -1078,6 +1085,7 @@
 				D60002022F20000000000202 /* IndicatorNearMousePointTests.swift in Sources */,
 				D60002122F20000000000212 /* AlwaysNearMousePlacementTests.swift in Sources */,
 				D60002422F20000000000242 /* SpotlightCompatibilityTests.swift in Sources */,
+				D60002322F20000000000232 /* SpotlightIndicatorPositionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

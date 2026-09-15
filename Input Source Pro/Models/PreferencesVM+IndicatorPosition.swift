@@ -41,6 +41,21 @@ extension PreferencesVM {
                 guard let self = self
                 else { return DEFAULT }
 
+                if SpotlightIndicatorPosition.usesSearchFieldBounds(bundleIdentifier: app.bundleIdentifier) {
+                    return self.getPositionAroundSpotlightSearchField(app, size: appSize)
+                        .flatMapLatest { point -> AnyPublisher<IndicatorPositionInfo?, Never> in
+                            if let point = point {
+                                return Just((.floatingApp, point)).eraseToAnyPublisher()
+                            }
+
+                            // Never fall back to the screen-sized Siri host window.
+                            return self.getPositionNearMouse(size: appSize)
+                                .map { $0.map { (.nearMouse, $0) } }
+                                .eraseToAnyPublisher()
+                        }
+                        .eraseToAnyPublisher()
+                }
+
                 return self.getPositionAroundFloatingWindow(app, size: appSize)
                     .flatMapLatest { positionForFloatingWindow -> AnyPublisher<IndicatorPositionInfo?, Never> in
                         if let positionForFloatingWindow = positionForFloatingWindow {
@@ -107,6 +122,30 @@ extension PreferencesVM {
 }
 
 private extension PreferencesVM {
+    func getPositionAroundSpotlightSearchField(
+        _ app: NSRunningApplication, size: CGSize
+    ) -> AnyPublisher<CGPoint?, Never> {
+        Future<CGRect?, Never> { promise in
+            DispatchQueue.global().async {
+                let bounds = Application(app).flatMap { SpotlightIndicatorPosition.searchFieldBounds(in: $0) }
+                promise(.success(bounds))
+            }
+        }
+        .receive(on: DispatchQueue.main)
+        .map { bounds in
+            guard let bounds = bounds,
+                  let screen = NSScreen.getScreenInclude(rect: bounds)
+            else { return nil }
+
+            return SpotlightIndicatorPosition.point(
+                searchFieldBounds: bounds,
+                indicatorSize: size,
+                visibleFrame: screen.visibleFrame
+            )
+        }
+        .eraseToAnyPublisher()
+    }
+
     func getPositionAroundInputCursor(
         size _: CGSize
     ) -> AnyPublisher<(point: CGPoint, isContainer: Bool)?, Never> {
