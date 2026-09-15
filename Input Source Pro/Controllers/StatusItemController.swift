@@ -218,6 +218,9 @@ class StatusItemController {
             DispatchQueue.main.async {
                 if !self.hasPreferencesShown {
                     self.hasPreferencesShown = true
+                    // Resolve SwiftUI's initial window size before centering it.
+                    window.updateConstraintsIfNeeded()
+                    window.layoutIfNeeded()
                     window.center()
                 }
                 
