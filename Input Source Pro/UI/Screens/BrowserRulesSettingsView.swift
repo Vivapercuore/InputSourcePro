@@ -66,10 +66,12 @@ struct BrowserRulesSettingsView: View {
                 HStack(spacing: 5) {
                     Button(action: addRule) {
                         SwiftUI.Image(systemName: "plus")
+                            .frame(width: 14, height: 14)
                     }
 
                     Button(action: removeRules) {
                         SwiftUI.Image(systemName: "minus")
+                            .frame(width: 14, height: 14)
                     }
                     .disabled(selectedRules.isEmpty)
                 }

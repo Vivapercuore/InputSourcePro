@@ -20,10 +20,12 @@ struct RulesSettingsView: View {
                     HStack(spacing: 5) {
                         Button(action: selectApp) {
                             SwiftUI.Image(systemName: "plus")
+                                .frame(width: 14, height: 14)
                         }
 
                         Button(action: removeApp) {
                             SwiftUI.Image(systemName: "minus")
+                                .frame(width: 14, height: 14)
                         }
                         .disabled(selectedApp.isEmpty)
 
