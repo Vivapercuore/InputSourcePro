@@ -92,6 +92,14 @@ extension NSRunningApplication {
 }
 
 extension NSRunningApplication {
+    var ruleDisplayName: String {
+        if NSApplication.isSpotlightApp(bundleIdentifier) {
+            return "Spotlight"
+        }
+
+        return localizedName ?? bundleId() ?? description
+    }
+
     func bundleId() -> String? {
         if let bundleIdentifier = bundleIdentifier {
             return bundleIdentifier

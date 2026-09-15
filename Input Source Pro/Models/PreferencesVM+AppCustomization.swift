@@ -20,7 +20,7 @@ extension PreferencesVM {
 
         appCustomization.createdAt = Date()
         appCustomization.url = url
-        appCustomization.bundleId = url.bundleId()
+        appCustomization.bundleId = bundleId
         appCustomization.bundleName = FileManager.default.displayName(atPath: url.path)
 
         if saveContext() {
@@ -104,12 +104,8 @@ extension PreferencesVM {
     func getAppCustomization(bundleId: String?) -> AppRule? {
         guard let bundleId = bundleId else { return nil }
 
-        let request = AppRule.fetchRequest()
-
-        request.predicate = NSPredicate(format: "bundleId == %@", bundleId)
-
         do {
-            return try container.viewContext.fetch(request).first
+            return try AppRule.matching(bundleId: bundleId, in: container.viewContext)
         } catch {
             print("getAppCustomization(bundleId) error: \(error.localizedDescription)")
             return nil

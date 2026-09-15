@@ -52,7 +52,7 @@ private struct ApplicationPickerRow: View {
                     .frame(width: appIconSize, height: appIconSize)
             }
 
-            Text(app.bundleName ?? "(unknown)")
+            Text(app.displayName)
                 .lineLimit(1)
 
             Spacer()
@@ -100,6 +100,6 @@ private struct ApplicationPickerRow: View {
                     .opacity(0.7)
             }
         }
-        .help(app.bundleName ?? app.url?.path ?? "(unknown)")
+        .help(app.displayName)
     }
 }

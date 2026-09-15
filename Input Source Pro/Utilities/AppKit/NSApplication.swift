@@ -9,6 +9,8 @@ private let floatingAppIdentifier: [(
     isValid: (((windowLayer: Int?, windowBounds: CGRect?)) -> Bool)?
 )] = [
     ("com.apple.Spotlight", 30, true, nil),
+    // macOS 27 hosts Spotlight in Siri AI.
+    ("com.apple.campo", 30, true, nil),
     ("com.runningwithcrayons.Alfred", 30, true, nil),
     ("at.obdev.LaunchBar", 30, true, nil),
     ("com.raycast.macos", 30, true, nil),
@@ -23,6 +25,13 @@ private let floatingAppIdentifier: [(
 ]
 
 extension NSApplication {
+    static let spotlightBundleIdentifiers = ["com.apple.Spotlight", "com.apple.campo"]
+
+    static func isSpotlightApp(_ bundleIdentifier: String?) -> Bool {
+        guard let bundleIdentifier = bundleIdentifier else { return false }
+        return spotlightBundleIdentifiers.contains(bundleIdentifier)
+    }
+
     static func isFloatingApp(_ bundleIdentifier: String?, windowLayer: Int? = nil, windowBounds: CGRect? = nil) -> Bool {
         guard let bundleIdentifier = bundleIdentifier else { return false }
 

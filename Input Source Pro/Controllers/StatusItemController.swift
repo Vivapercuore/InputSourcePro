@@ -41,7 +41,7 @@ class StatusItemController {
             }
 
         let menu = NSMenuItem(
-            title: String(format: "Default Keyboard for %@".i18n(), app.localizedName ?? "Current App".i18n()),
+            title: String(format: "Default Keyboard for %@".i18n(), app.ruleDisplayName),
             submenuItems: items
         )
 

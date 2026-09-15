@@ -15,7 +15,7 @@ struct RunningApplicationsPicker: View {
         Menu("Add Running Apps") {
             ForEach(preferencesVM.filterApps(NSWorkspace.shared.runningApplications), id: \.processIdentifier) { app in
                 Button(action: { onSelect(app) }) {
-                    Text(app.localizedName ?? app.bundleId() ?? app.description)
+                    Text(app.ruleDisplayName)
 
                     if let url = app.bundleURL {
                         let image = NSWorkspace.shared.icon(forFile: url.path)
